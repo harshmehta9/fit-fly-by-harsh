@@ -16,6 +16,7 @@ export interface Exercise {
   sets: number;
   reps: string;
   rest: string;
+  demoUrl?: string;
   notes?: string;
 }
 

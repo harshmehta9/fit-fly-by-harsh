@@ -54,13 +54,15 @@ Provide the routine in JSON format with this exact structure:
           "sets": 4,
           "reps": "8-10",
           "rest": "90 seconds",
-          "notes": "Warm up with lighter weights"
+          "notes": "Warm up with lighter weights",
+          "demoUrl": "https://...direct-gif-link"
         }
       ]
     }
   ]
 }
 
+For every exercise, fetch a direct HTTPS GIF link that shows how to perform it (no HTML, no placeholders, no query strings that expire). Prefer stable sources like musclesworked.com or giphy.com direct GIFs. The link must be in the demoUrl field.
 Make the routine realistic, safe, and tailored to the ${userProfile.fitnessGoal} goal. Include 5-7 exercises per day.`;
 
         setStatus('Generating your personalized routine...');
@@ -91,7 +93,14 @@ Make the routine realistic, safe, and tailored to the ${userProfile.fitnessGoal}
           day: day.day,
           dayName: day.dayName,
           focus: day.focus,
-          exercises: day.exercises,
+          exercises: day.exercises?.map((exercise: any) => ({
+            name: exercise.name,
+            sets: exercise.sets,
+            reps: exercise.reps,
+            rest: exercise.rest,
+            notes: exercise.notes,
+            demoUrl: exercise.demoUrl,
+          })) || [],
         }));
 
         setStatus('Saving your routine...');

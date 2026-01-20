@@ -110,6 +110,19 @@ export default function RoutineDisplay({ onStart }: RoutineDisplayProps) {
                           {exercise.notes}
                         </p>
                       )}
+                      {exercise.demoUrl && (
+                        <div className="mt-3 flex items-center gap-2 text-xs">
+                          <span className="text-muted-foreground">Demo:</span>
+                          <a
+                            href={exercise.demoUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-primary hover:underline"
+                          >
+                            View GIF
+                          </a>
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
