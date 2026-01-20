@@ -47,7 +47,7 @@ export default function ApiKeyFlow({ onComplete }: ApiKeyFlowProps) {
         {/* Card */}
         <div className="bg-card rounded-lg shadow-lg p-8">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold mb-2">FitFlow</h1>
+            <h1 className="text-3xl font-bold mb-2">FitFlow by Harsh</h1>
             <p className="text-muted-foreground">Your AI-powered personalized gym routine</p>
           </div>
 
